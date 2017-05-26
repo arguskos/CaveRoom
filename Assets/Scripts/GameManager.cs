@@ -14,7 +14,7 @@ public class GameManager : GameManagerBase {
 	new void Update () {
 		base.Update();
 		
-		StartCoroutine(Helpers.SlowPrint(GetParameter(Parameters.GetParameter(Parameters.ParamsName.SongTempo)).ToString(), 1f));
+		//StartCoroutine(Helpers.SlowPrint(GetParameter(Parameters.GetParameter(Parameters.ParamsName.SongTempo)).ToString(), 1f));
 		Source.pitch = GetParameter(Parameters.GetParameter(Parameters.ParamsName.SongTempo));
 	}
 }

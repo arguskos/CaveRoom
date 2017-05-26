@@ -11,9 +11,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9f250ada0cb1884f841554e21bc4571, type: 3}
   m_Name: Moment2
   m_EditorClassIdentifier: 
-  SongTempoMin: 1
-  SongTempoMax: 2
-  SongTempo: SongTempo
-  ToleranceErrorTimeMin: 1
-  ToleranceErrorTimeMax: 1
-  ToleranceErrorTime: ToleranceErrorTime
+  MomentInfo2:
+  - Name: WallsAmmount
+    MinMax:
+      Max: 0
+      Min: 0
+  - Name: TargetSpeed
+    MinMax:
+      Max: 0
+      Min: 0
+  - Name: ToleranceErrorTime
+    MinMax:
+      Max: 0
+      Min: 0
+  - Name: SongTempo
+    MinMax:
+      Max: 1
+      Min: 1

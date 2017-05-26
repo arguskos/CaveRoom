@@ -32,7 +32,7 @@ public class MainObserver : MonoBehaviour {
 
 	public void Right()
 	{
-		DistanceSpread+=1;
+		DistanceSpread+=1.5f;
 		foreach (var child in GetComponentsInChildren<EmissionController>())
 		{
 			if (DistanceSpread > Vector3.Distance(child.transform.position, Center.transform.position))
@@ -40,7 +40,7 @@ public class MainObserver : MonoBehaviour {
 				//print(DistanceSpread < Vector3.Distance(child.transform.position, Center.transform.position));
 
 				//child.SetRandomColor();
-				child.IncreaseEmmision(2.1f);
+				child.IncreaseEmmision(0.1f);
 			}
 		}
 	}
@@ -101,11 +101,11 @@ public class MainObserver : MonoBehaviour {
 				//GetComponent<Renderer>().material.color = new Color(GetComponent<Renderer>().material.color.r - _reductnionRate, 0, 0, 1);
 
 			}
-			//else
-			//{
-			//	print("wromg");
-			//	Wrong();
-			//}
+			else
+			{
+				print("wromg");
+				Wrong();
+			}
 		}
     }
 }

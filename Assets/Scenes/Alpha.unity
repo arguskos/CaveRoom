@@ -86,8 +86,7 @@ LightmapSettings:
     m_PVRFilteringAtrousColorSigma: 1
     m_PVRFilteringAtrousNormalSigma: 1
     m_PVRFilteringAtrousPositionSigma: 1
-  m_LightingDataAsset: {fileID: 112000376, guid: 04ada027f8375a44aaf9266345879bb8,
-    type: 2}
+  m_LightingDataAsset: {fileID: 0}
   m_ShadowMaskMode: 2
 --- !u!196 &4
 NavMeshSettings:
@@ -363,7 +362,7 @@ MeshRenderer:
     type: 2}
   m_PrefabInternal: {fileID: 659248009}
   m_GameObject: {fileID: 19253891}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_MotionVectors: 1
@@ -1107,7 +1106,7 @@ GameObject:
   - component: {fileID: 129590923}
   - component: {fileID: 129590924}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: MainObserver
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1120,7 +1119,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 129590921}
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -0.106000006, y: -0.042000055, z: 0.48050004}
+  m_LocalPosition: {x: -0.106000006, y: -0.042, z: 0.738}
   m_LocalScale: {x: 0.0050000004, y: 0.25000006, z: 0.0050000018}
   m_Children:
   - {fileID: 927452512}
@@ -5328,6 +5327,11 @@ Prefab:
     - target: {fileID: 1547708544634616, guid: a2f024a3286179b4ba50e761f6d013b3, type: 2}
       propertyPath: m_Name
       value: sphere_move (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 23840984805471858, guid: a2f024a3286179b4ba50e761f6d013b3,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 114276611500769946, guid: a2f024a3286179b4ba50e761f6d013b3, type: 2}

@@ -10,7 +10,7 @@ public class alll : MonoBehaviour {
     private BeatObserver beatObserver;
     private int beatCounter;
 
-    private float _toleranceTime = 0.5f;
+    private float _toleranceTime = 0.4f;
     public float _toleraceTimer = 0;
     public bool _canBeHitted = false;
 	private int _multiplayer=0;
@@ -22,7 +22,7 @@ public class alll : MonoBehaviour {
         beatCounter = 0;
 		StartCoroutine (WaitPrint ());
     }
-	IEnumerator WaitPrint()
+	IEnumerator WaitPrint(	)
 	{
 		while(true){
 			//print (_time.Count);
@@ -42,7 +42,7 @@ public class alll : MonoBehaviour {
 
 		}
         if ((beatObserver.beatMask & BeatType.OnBeat) == BeatType.OnBeat
-			//|| (beatObserver.beatMask & BeatType.OffBeat) == BeatType.OffBeat
+			|| (beatObserver.beatMask & BeatType.OffBeat) == BeatType.OffBeat
 
             )
         {
@@ -66,7 +66,7 @@ public class alll : MonoBehaviour {
 				GetComponent<Renderer> ().material.color = new Color (GetComponent<Renderer> ().material.color.r -_reductnionRate, 0, 0, 1);
 
 			} else {
-				print ("wromg");
+				//print ("wromg");
 			}
         }
     }
