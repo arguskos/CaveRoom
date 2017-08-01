@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using SynchronizerData;
@@ -24,12 +25,24 @@ public class MainObserver : MonoBehaviour {
 	private int _multiplayer = 0;
 	private float _reductnionRate = 1f;
 	public List<float> _time;
+    public static MainObserver Instance;
+
+    public Action OnRight;
+    public Action OnWrong;
+    public Action OnSkipped;
+    public Action OnBeatChange;
+
 	void Start()
     {
         beatObserver = GetComponent<BeatObserver>();
         beatCounter = 0;
     }
 
+    public void  Awake()
+    {
+        if ( Instance==null)
+            Instance = this;
+    }
 	public void Right()
 	{
 		DistanceSpread+=1.5f;
@@ -48,12 +61,11 @@ public class MainObserver : MonoBehaviour {
 	{
 		foreach (var child in GetComponentsInChildren<EmissionController>())
 		{
-			child.ZeroingEmmision();
+			//child.ZeroingEmmision();
 			DistanceSpread = 0;
 		}
 
 	}
-
 	void Update()
     {
 
@@ -63,7 +75,9 @@ public class MainObserver : MonoBehaviour {
 			if (Time.time - _time[i] > _toleranceTime)
 			{
 				_time.RemoveAt(i);
-				//GetComponent<Renderer>().material.color = new Color(GetComponent<Renderer>().material.color.r - _reductnionRate, 0, 0, 1);
+                if (OnSkipped!=null)
+			      OnSkipped();
+			    //GetComponent<Renderer>().material.color = new Color(GetComponent<Renderer>().material.color.r - _reductnionRate, 0, 0, 1);
 
 			}
 
@@ -75,8 +89,11 @@ public class MainObserver : MonoBehaviour {
 		{
 			foreach (var child in GetComponentsInChildren<EmissionController>())
 			{
+                if (OnBeatChange!=null)
+    			    OnBeatChange();
 				if (DistanceSpread > Vector3.Distance(child.transform.position, Center.transform.position))
 				{
+
 					//print(DistanceSpread < Vector3.Distance(child.transform.position, Center.transform.position));
 
 					child.SetRandomColor();
@@ -95,16 +112,20 @@ public class MainObserver : MonoBehaviour {
         {
 			if (_time.Count > 0)
 			{
-				print("Right");
-				Right();
+				//print("Right");
+                if (OnRight!=null)
+			        OnRight();
+				//Right();
 				_time.RemoveAt(0);
 				//GetComponent<Renderer>().material.color = new Color(GetComponent<Renderer>().material.color.r - _reductnionRate, 0, 0, 1);
 
 			}
 			else
 			{
-				print("wromg");
-				Wrong();
+				//print("wromg");
+                if (OnWrong!=null)
+			        OnWrong();
+				//Wrong();
 			}
 		}
     }

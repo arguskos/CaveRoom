@@ -5,6 +5,17 @@ using UnityEngine;
 public class GameManager : GameManagerBase {
 
 	public AudioSource Source;
+
+    public static GameManager Instance;
+
+    public void Awake()
+    {
+
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+    }
 	// Use this for initialization
 	new void Start () {
 		base.Start();

@@ -12,19 +12,7 @@ MonoBehaviour:
   m_Name: Moment1
   m_EditorClassIdentifier: 
   MomentInfo2:
-  - Name: WallsAmmount
+  - Name: 0
     MinMax:
       Max: 0
       Min: 0
-  - Name: TargetSpeed
-    MinMax:
-      Max: 0
-      Min: 0
-  - Name: ToleranceErrorTime
-    MinMax:
-      Max: 0
-      Min: 0
-  - Name: SongTempo
-    MinMax:
-      Max: 1
-      Min: 1

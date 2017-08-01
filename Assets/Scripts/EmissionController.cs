@@ -4,8 +4,23 @@ using UnityEngine;
 
 public class EmissionController : MonoBehaviour {
     public Material Mat;
-    public float Emmsion = 0;
-    // Use this for initialization
+	private float _emmision;
+	public float Emmsion
+	{
+		get { return _emmision; }
+		set
+		{
+			_emmision = value;
+			Color finalColor = Mat.color * Mathf.LinearToGammaSpace(_emmision);
+
+			Mat.SetColor("_EmissionColor", finalColor);
+
+			GetComponent<Renderer>().UpdateGIMaterials();
+
+		}
+	}
+
+	// Use this for initialization
     void Start()
     {
 		SetRandomColor();
@@ -16,7 +31,8 @@ public class EmissionController : MonoBehaviour {
 
         SetEmmision();
     }
-    public void SetRandomColor()
+	
+	public void SetRandomColor()
 	{
 		Mat = GetComponent<Renderer>().material;
 		Mat.color = new Color(Random.Range(0.2f, 1),Random.Range(0.2f, 1),Random.Range(0.2f, 1),1);
@@ -40,11 +56,7 @@ public class EmissionController : MonoBehaviour {
 	}
     private void SetEmmision()
 	{
-		Color finalColor = Mat.color * Mathf.LinearToGammaSpace (Emmsion);
 
-         Mat.SetColor ("_EmissionColor", finalColor);
-
-		GetComponent<Renderer>().UpdateGIMaterials();
 
 	}
 	// Update is called once per frame
